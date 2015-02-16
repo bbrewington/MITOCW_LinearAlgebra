@@ -1,0 +1,26 @@
+# From Strang, G., "Introduction to Linear Algebra" (ISBN: 978-0-9802327-1-4), 4th Ed
+# Chapter 2.1 - Vectors and Linear Equations
+# Problem 29 & 30 - multiplying vector again and again by Markov Matrix [.8,.3;.2,.7]
+
+u <- c(1,0)
+v <- c(0,1)
+k <- 0:7
+A <- matrix(c(.8,.2,.3,.7),nrow=2,ncol=2)
+x <- NULL
+y <- NULL
+
+# Perform Markov Matrix multiplication 7 times on vector v
+for (i in 1:7) {
+  v <- A %*% v
+  #print(v)
+  x <- cbind(x,v)
+  print(x)
+}
+
+# Perform Markov Matrix multiplication 7 times on vector u
+for (i in 1:20) {
+  u <- A %*% u
+  #print(u)
+  y <- cbind(y,u)
+  print(y)
+}
